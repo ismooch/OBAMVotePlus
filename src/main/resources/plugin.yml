@@ -1,0 +1,9 @@
+name: OBAMVote
+main: com.obam.ismooch.obamvote.OBAMVotePlus
+version: 1.0
+author: iSmooch
+depends: [Votifier, ObamAPI]
+commands:
+  vote:
+    description: VOTINNNNNNNNNNNNNG
+    usage: /<command>
