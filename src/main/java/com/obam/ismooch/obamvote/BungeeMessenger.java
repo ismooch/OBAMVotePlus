@@ -20,7 +20,7 @@ class BungeeMessenger implements PluginMessageListener {
 
     public static Plugin plugin;
 
-    public BungeeMessenger (Plugin p){
+    public BungeeMessenger(Plugin p) {
 
         p.getServer().getMessenger().registerOutgoingPluginChannel(p, "BungeeCord");
         p.getServer().getMessenger().registerIncomingPluginChannel(p, "BungeeCord", this);
@@ -53,10 +53,11 @@ class BungeeMessenger implements PluginMessageListener {
 
 
     }
-    @Override
-    public void onPluginMessageReceived(String channel, Player player, byte[] message){
 
-        if(!channel.equals("BungeeCord")){
+    @Override
+    public void onPluginMessageReceived(String channel, Player player, byte[] message) {
+
+        if (!channel.equals("BungeeCord")) {
 
             return;
 
@@ -64,7 +65,7 @@ class BungeeMessenger implements PluginMessageListener {
 
         ByteArrayDataInput in = ByteStreams.newDataInput(message);
         String subChannel = in.readUTF();
-        if(subChannel.equals("VoteBroadcast")){
+        if (subChannel.equals("VoteBroadcast")) {
 
             short len = in.readShort();
             byte[] msgbytes = new byte[len];
@@ -82,7 +83,7 @@ class BungeeMessenger implements PluginMessageListener {
             }
             try {
                 service = msgin.readUTF();
-            }catch(IOException e){
+            } catch (IOException e) {
 
                 e.printStackTrace();
             }
@@ -93,7 +94,7 @@ class BungeeMessenger implements PluginMessageListener {
             }
             try {
                 stubs = Double.valueOf(msgin.readUTF());
-            }catch(IOException e){
+            } catch (IOException e) {
 
                 e.printStackTrace();
             }
@@ -103,10 +104,6 @@ class BungeeMessenger implements PluginMessageListener {
 
 
         }
-
-
-
-
 
 
     }
